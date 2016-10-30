@@ -15,6 +15,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy search
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }       " Keyword completion
 Plug 'SirVer/ultisnips'                                           " Snippets engine
 Plug 'honza/vim-snippets'                                         " Snippets
+Plug 'tpope/vim-commentary'                                       " Commentor
+Plug 'ARM9/snes-syntax-vim'                                       " SNES syntax
 
 call plug#end()
 
@@ -82,3 +84,6 @@ autocmd! BufWritePost * Neomake
 
 " Automatically open error list if errors exists
 let g:neomake_open_list = 2
+
+au BufNewFile,BufRead *.asm,*.inc set filetype=snes
+au FileType snes setlocal commentstring=;\ %s
